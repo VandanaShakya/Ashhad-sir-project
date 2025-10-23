@@ -603,7 +603,7 @@ const Homepage = () => {
 
 
 
-\    <div id="contact" className="bg-transparent">
+  <div id="contact" className="bg-transparent">
       <Form />
     </div>
     </div>
