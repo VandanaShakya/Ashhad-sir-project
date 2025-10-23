@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,26 +50,21 @@ function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <button onClick={() => goToSection("about")} className={`${navLinkClasses} cursor-pointer`}>
+              <button onClick={() => goToSection("home")} className={navLinkClasses}>
+                Home
+              </button>
+              <button onClick={() => goToSection("about")} className={navLinkClasses}>
                 About
               </button>
-              <button onClick={() => goToSection("experience")} className={`${navLinkClasses} cursor-pointer`}>
-                Experience
+              <button onClick={() => goToSection("skills")} className={navLinkClasses}>
+                Skills
               </button>
-              <button onClick={() => goToSection("tech")} className={`${navLinkClasses} cursor-pointer`}>
-                Tech
-              </button>
-              <button onClick={() => goToSection("projects")} className={`${navLinkClasses} cursor-pointer`}>
+              <button onClick={() => goToSection("projects")} className={navLinkClasses}>
                 Projects
               </button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => goToSection("contact")}
-                className="px-10 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-colors duration-300 cursor-pointer"
-              >
-                Contact
-              </motion.button>
+              <button onClick={() => goToSection("contact")} className={navLinkClasses}>
+                Contact Us
+              </button>
             </div>
           </div>
 
@@ -90,30 +84,27 @@ function Navbar() {
       </div>
 
       {/* Mobile Dropdown */}
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden fixed top-16 left-0 w-full bg-[#121820] z-40"
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <button onClick={() => goToSection("about")} className={mobileLinkClasses}>
-            About
-          </button>
-          <button onClick={() => goToSection("experience")} className={mobileLinkClasses}>
-            Experience
-          </button>
-          <button onClick={() => goToSection("tech")} className={mobileLinkClasses}>
-            Tech
-          </button>
-          <button onClick={() => goToSection("projects")} className={mobileLinkClasses}>
-            Projects
-          </button>
-          <button onClick={() => goToSection("contact")} className={mobileLinkClasses}>
-            Contact
-          </button>
+      {isOpen && (
+        <div className="md:hidden bg-[#121820]" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <button onClick={() => goToSection("about")} className={mobileLinkClasses}>
+              About
+            </button>
+            <button onClick={() => goToSection("experience")} className={mobileLinkClasses}>
+              Experience
+            </button>
+            <button onClick={() => goToSection("tech")} className={mobileLinkClasses}>
+              Tech
+            </button>
+            <button onClick={() => goToSection("projects")} className={mobileLinkClasses}>
+              Projects
+            </button>
+            <button onClick={() => goToSection("contact")} className={mobileLinkClasses}>
+              Contact Us
+            </button>
+          </div>
         </div>
-      </motion.div>
+      )}
     </nav>
   );
 }

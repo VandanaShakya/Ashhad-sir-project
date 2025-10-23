@@ -94,8 +94,8 @@ const Homepage = () => {
 
   return (
     <>
+     <div className="overflow-x-hidden">
       <div id="hero" className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
-      {/* Rotating Background Image */}
       <img
         src={images.heroImg}
         alt="Background"
@@ -122,24 +122,20 @@ const Homepage = () => {
         `}
       </style>
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-      {/* Decorative Shapes */}
       <div className="absolute inset-0 z-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-6 h-6 md:w-8 md:h-8 transform rotate-45 border border-purple-400/50"></div>
         <div className="absolute top-40 right-40 w-8 h-8 md:w-10 md:h-10 transform rotate-45 border border-cyan-400/50"></div>
         <div className="absolute bottom-60 left-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-500/10 border border-green-500/20"></div>
       </div>
 
-      {/* Main Content */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="relative z-10 max-w-4xl mx-auto text-center pt-40 pb-12 px-4  "
       >
-        {/* Available Tag */}
         <motion.span
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,7 +149,6 @@ const Homepage = () => {
           Available for hire
         </motion.span>
 
-        {/* Name */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -163,7 +158,6 @@ const Homepage = () => {
           Ashhad
         </motion.h1>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -174,7 +168,6 @@ const Homepage = () => {
           <b>modern technologies</b> and <b>clean code</b>.
         </motion.p>
 
-        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -206,12 +199,10 @@ const Homepage = () => {
           </motion.button>
         </motion.div>
 
-        {/* Tech Stack */}
         <h2 className="text-sm uppercase tracking-widest text-gray-400 mb-6">
           Tech Stack
         </h2>
 
-        {/* NEW: Framer Motion for Tech Icons */}
         <motion.div
           className="flex flex-wrap justify-center gap-6 mb-10"
           initial="hidden"
@@ -231,7 +222,6 @@ const Homepage = () => {
           ))}
         </motion.div>
 
-        {/* Experience Bar */}
         <div className="flex flex-col items-center">
           <div className="w-full max-w-xs h-1 rounded-full bg-gray-700 mb-2">
             <motion.div
@@ -244,7 +234,6 @@ const Homepage = () => {
           <span className="text-sm text-gray-400">2+ Years of experience</span>
         </div>
 
-        {/* Footer */}
         <footer className="mt-10">
           <motion.div
             initial={{ opacity: 0 }}
@@ -252,7 +241,6 @@ const Homepage = () => {
             transition={{ delay: 1.8 }}
             className="max-w-7xl mx-auto flex justify-center space-x-8 text-gray-400 z-20"
           >
-            {/* NEW: Framer Motion for Social Icons */}
             {socialIcons.map(({ Icon, href, color }, index) => (
               <motion.a
                 key={index}
@@ -396,7 +384,7 @@ const Homepage = () => {
     </section>
 
     {/* third section -> EXPERIENCE (kept as-is) */}
-   <section id="experience" className="bg-[#09152C] min-h-screen font-inter">
+   <section id="skills" className="bg-[#09152C] min-h-screen font-inter">
   <div className="max-w-7xl mx-auto px-4 py-12">
     <div className="lg:grid lg:grid-cols-12 gap-16 items-center">
       {/* LEFT COLUMN */}
@@ -561,20 +549,11 @@ const Homepage = () => {
 </section>
 
 
-
-
-
     {/* fourth section -> PROJECTS */}
-<section id="projects" className="bg-gray-900 text-white ">
+<section id="projects" className="bg-gray-900 text-white">
   <div className="max-w-7xl mx-auto px-4 py-12">
     {/* Heading */}
-    <motion.div
-      className="mb-10 text-center"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }} // Changed to whileInView
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div className="mb-10 text-center">
       <h3 className="text-sm sm:text-base text-gray-400">MY WORK</h3>
       <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
         Projects.
@@ -582,87 +561,61 @@ const Homepage = () => {
       <p className="text-[#A7AAAD] max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
         Following Projects showcase my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
       </p>
-    </motion.div>
+    </div>
 
     {/* Project Cards */}
-    <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-      initial="hidden"
-      whileInView="visible" // Changed to whileInView for scroll-based stagger
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        visible: { transition: { staggerChildren: 0.2 } },
-      }}
-    >
-       {projectsData.map((project, index) => (
-       <Link to={project.link} target="_blank" key={index} >
-         <motion.div
-          key={index}
-          className="relative rounded-lg overflow-hidden shadow-lg bg-[#1E182D]/90 border transition-transform duration-300 hover:scale-[1.02]"
-          initial={{ opacity: 0, y: 30 }}
-          variants={{ // Added variants for staggered effect
-            hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-          }}
-          whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="relative">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full object-cover h-48 sm:h-56 md:h-64 lg:h-56 xl:h-60 rounded-t-lg"
-            />
-            
-          </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {projectsData.map((project, index) => (
+        <a href={project.link} target="_blank" rel="noopener noreferrer" key={index}>
+          <div className="relative rounded-lg overflow-hidden shadow-lg bg-[#1E182D]/90 border transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+            <div className="relative">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full object-cover h-48 sm:h-56 md:h-64 lg:h-56 xl:h-60 rounded-t-lg"
+              />
+            </div>
 
-          <div className="p-4 sm:p-6">
-            <motion.h3
-              className="text-lg sm:text-xl md:text-2xl font-bold mb-2 break-words"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
-            >
-              {project.title}
-            </motion.h3>
-            <motion.p
-              className="text-gray-400 text-sm sm:text-base md:text-base mb-4 break-words"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-            >
-              {project.description}
-            </motion.p>
-            <motion.div
-              className="flex flex-wrap gap-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-            >
-              {project.tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="text-xs sm:text-sm text-blue-400 bg-gray-700 px-2 py-1 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </motion.div>
+            <div className="p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 break-words">
+                {project.title}
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base md:text-base mb-4 break-words">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs sm:text-sm text-blue-400 bg-gray-700 px-2 py-1 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-        </motion.div>
-       </Link>
+        </a>
       ))}
-    </motion.div>
+    </div>
   </div>
 </section>
 
 
-    {/* CONTACT (Form) */}
-    <div id="contact" className="bg-transparent">
+
+\    <div id="contact" className="bg-transparent">
       <Form />
+    </div>
     </div>
     </>
   );
 };
 
 export default Homepage;
+
+
+
+
+
+
+
