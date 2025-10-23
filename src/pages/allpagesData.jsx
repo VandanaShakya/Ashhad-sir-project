@@ -66,7 +66,7 @@ export const projectsData = [
     description:
       "Glory Printers delivers high-quality printing solutions, specializing in custom packaging, labels, and commercial printing services tailored for businesses.",
     image: images.project5,
-    tags: ["Printing", 'CustomPackaging", "LabelPrinting"],
+    tags: ["Printing", "CustomPackaging", "LabelPrinting"],
     link: "https://www.gloryprinters.com/",
   },
 ];
