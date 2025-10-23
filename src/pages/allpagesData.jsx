@@ -26,53 +26,47 @@ export const servicesData = [
   ];
 
   // projects data //
-  export const projectsData = [
+
+
+export const projectsData = [
   {
-    title: "Robin",
+    title: "Fundzz",
     description:
-      "Robin is the next-generation API platform for developers to design, test, and document APIs faster and more efficiently.",
+      "Fundzz is a comprehensive mutual fund platform offering insights, charts, and investment tracking tools for retail investors.",
     image: images.project1,
-    tags: ["#next.js", "#rest-api", "#api-testing"],
-    github: "#",
+    tags: ["#Finance", "#MutualFunds", "#Investment"],
+    link: "https://fundzz.com/"
   },
   {
-    title: "Devlib",
+    title: "World Market View",
     description:
-      "Unlock the power of seamless coding with DevLib – where precision meets efficiency. No more time wasted in the pursuit of perfect resources.",
+      "World Market View provides real-time market analysis, stock trends, and global financial insights for professional traders.",
     image: images.project2,
-    tags: ["#react", "#api", "#UI"],
-    github: "#",
+    tags: ["#MarketAnalysis", "#Stocks", "#Finance"],
+    link: "https://worldmarketview.in/",
   },
   {
-    title: "Renukiran Welfare Foundation",
+    title: "QBS Accounting",
     description:
-      "This is Official Website Of Renukiran Welfare Foundation made on Next-13. This website contains the data of Renukiran.",
+      "QBS Accounting is a cloud-based accounting software that simplifies bookkeeping, invoicing, and financial reporting for businesses.",
     image: images.project3,
-    tags: ["#react", "#News-API", "#Bootstrap"],
-    github: "#",
+    tags: ["#Accounting", "#SaaS", "#Finance"],
+    link: "https://qbsaccounting.us/",
   },
   {
-    title: "Robin",
+    title: "Goldaroma Rice",
     description:
-      "Robin is the next-generation API platform for developers to design, test, and document APIs faster and more efficiently.",
-    image:images.project4,
-    tags: ["#next.js", "#rest-api", "#api-testing"],
-    github: "#",
+      "Goldaroma Rice is an e-commerce platform dedicated to premium rice products with an easy-to-navigate shopping experience.",
+    image: images.project4,
+    tags: ["#Ecommerce", "#Food", "#Retail"],
+    link: "https://goldaromarice.com/",
   },
   {
-    title: "Devlib",
+    title: "Glory Printers",
     description:
-      "Unlock the power of seamless coding with DevLib – where precision meets efficiency. No more time wasted in the pursuit of perfect resources.",
+      "Glory Printers delivers high-quality printing solutions, specializing in custom packaging, labels, and commercial printing services tailored for businesses.",
     image: images.project5,
-    tags: ["#react", "#api", "#UI"],
-    github: "#",
-  },
-  {
-    title: "Renukiran Welfare Foundation",
-    description:
-      "This is Official Website Of Renukiran Welfare Foundation made on Next-13. This website contains the data of Renukiran.",
-    image: images.project1,
-    tags: ["#react", "#News-API", "#Bootstrap"],
-    github: "#",
+    tags: ["#Printing", "#CustomPackaging", "#LabelPrinting"],
+    link: "https://www.gloryprinters.com/",
   },
 ];

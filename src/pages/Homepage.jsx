@@ -1,5 +1,6 @@
 // pages/Homepage.jsx
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FaReact, FaLinkedinIn, FaGithub, FaTwitter, FaLaptopCode } from 'react-icons/fa';
 import { SiNextdotjs, SiTypescript, SiNodedotjs, SiTailwindcss } from 'react-icons/si';
 import images from '../assets/images';
@@ -395,172 +396,173 @@ const Homepage = () => {
     </section>
 
     {/* third section -> EXPERIENCE (kept as-is) */}
-    <section id="experience" className="bg-[#09152C] min-h-screen font-inter">
-      {/* ... (your existing Experience content remains) */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="lg:grid lg:grid-cols-12 gap-16 items-center">
-          {/* LEFT COLUMN */}
+   <section id="experience" className="bg-[#09152C] min-h-screen font-inter">
+  <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="lg:grid lg:grid-cols-12 gap-16 items-center">
+      {/* LEFT COLUMN */}
+      <motion.div
+        className="lg:col-span-7"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+      >
+        <motion.span
+          className="inline-flex items-center px-3 py-1 mb-6 text-xs font-semibold uppercase tracking-wider rounded-full border border-blue-400 text-blue-400 bg-blue-900/20"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <span className="relative flex h-2 w-2 mr-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400"></span>
+          </span>
+          Personal Portfolio
+        </motion.span>
+
+        <motion.h1
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          Showcasing My Skills, Projects & Achievements
+        </motion.h1>
+
+        <motion.p
+          className="text-gray-300 text-lg mb-10 max-w-xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          Welcome to my portfolio! Here, I share the projects, experiences, and skills that reflect my journey as a developer and creator. Explore my work and see how I turn ideas into impactful digital solutions.
+        </motion.p>
+
+        {/* Features */}
+        <motion.div
+          className="space-y-6 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+        >
           <motion.div
-            className="lg:col-span-7"
-            initial="hidden"
-            whileInView="visible" // Changed to whileInView for scroll-based animation
-            viewport={{ once: true, amount: 0.2 }}
-            variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
-          >
-            <motion.span
-              className="inline-flex items-center px-3 py-1 mb-6 text-xs font-semibold uppercase tracking-wider rounded-full border border-blue-400 text-blue-400 bg-blue-900/20"
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }} // Changed to whileInView
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <span className="relative flex h-2 w-2 mr-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400"></span>
-              </span>
-              Best IT Solutions
-            </motion.span>
-
-            <motion.h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }} // Changed to whileInView
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              Let's Elevate Your Business with Strategic IT Solutions
-            </motion.h1>
-
-            <motion.p
-              className="text-gray-300 text-lg mb-10 max-w-xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }} // Changed to whileInView
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              At TechXen, we understand that every business is unique, which is why we offer a range 
-              of flexible IT solutions designed to address your specific challenges and goals.
-            </motion.p>
-
-            {/* Features */}
-            <motion.div
-              className="space-y-6 mb-12"
-              initial="hidden"
-              whileInView="visible" // Changed to whileInView for scroll-based stagger
-              viewport={{ once: true, amount: 0.2 }}
-              variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
-            >
-              <motion.div
-                className="flex items-start space-x-4 p-4"
-                initial={{ opacity: 0, x: -20 }}
-                variants={{ // Added variants for staggered effect
-                  hidden: { opacity: 0, x: -20 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
-                 }}
-              >
-                <motion.div
-                  className="flex-shrink-0 p-3 rounded-xl bg-[#2f2550] text-white border border-[#57419e]"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Wifi className="w-6 h-6" />
-                </motion.div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-1">Network Infrastructure Solutions</h3>
-                  <p className="text-gray-300 text-base">
-                    Build a reliable and secure network infrastructure that supports your business operations seamlessly.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="flex items-start space-x-4 p-4"
-                initial={{ opacity: 0, x: -20 }}
-                 variants={{ // Added variants for staggered effect
-                  hidden: { opacity: 0, x: -20 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
-                 }}
-              >
-                <motion.div
-                  className="flex-shrink-0 p-3 rounded-xl bg-[#2f2550] text-white border border-[#57419e]"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Monitor className="w-6 h-6" />
-                </motion.div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-1">Managed IT Services</h3>
-                  <p className="text-gray-300 text-base">
-                    Focus on your core business activities while we take care of your IT needs with our managed IT services.
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.button
-              className="py-3 px-8 bg-[#2f2550] text-white border border-[#57419e] font-bold text-lg rounded-xl shadow-lg hover:bg-[#57419e] cursor-pointer transition duration-300 transform hover:scale-[1.03]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }} // Changed to whileInView
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Discover More <CheckCircle className="inline w-5 h-5 ml-2" />
-            </motion.button>
-          </motion.div>
-
-          {/* RIGHT COLUMN */}
-          <motion.div
-            className="lg:col-span-5 mt-12 lg:mt-0 flex justify-center lg:justify-end px-4 sm:px-6 md:px-8"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }} // Changed to whileInView
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex items-start space-x-4 p-4"
+            initial={{ opacity: 0, x: -20 }}
+            variants={{
+              hidden: { opacity: 0, x: -20 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+            }}
           >
             <motion.div
-              className="relative w-full max-w-md lg:max-w-full"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
+              className="flex-shrink-0 p-3 rounded-xl bg-[#2f2550] text-white border border-[#57419e]"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
             >
-              <motion.img
-                src={images.dummyImg1}
-                alt="Tech Expert Working"
-                className="w-full h-auto object-cover rounded-2xl shadow-2xl transform transition duration-500"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }} // Changed to whileInView
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              />
-              <div className="absolute inset-0 border-4 border-lime-400 rounded-2xl opacity-50"></div>
-
-              <motion.div
-                className="absolute top-0 right-0 w-32 sm:w-40 md:w-48 h-auto transform translate-x-8 -translate-y-8 shadow-2xl rounded-xl overflow-hidden"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }} // Changed to whileInView
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: 1 }}
-              >
-                <img src={images.dummyImg2} alt="Team Collaboration" className="w-full h-auto object-cover" />
-                <div className="absolute inset-0 border-2 border-[#09152C] rounded-xl"></div>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-0 left-0 w-2/5 sm:w-1/3 md:w-2/5 transform -translate-x-8 translate-y-8 shadow-2xl rounded-xl overflow-hidden"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }} // Changed to whileInView
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: 1.2 }}
-              >
-                <img src={images.dummyImg3} alt="Client Consultation" className="w-full h-auto object-cover" />
-                <div className="absolute inset-0 border-2 border-[#09152C] rounded-xl"></div>
-              </motion.div>
+              <Wifi className="w-6 h-6" />
             </motion.div>
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-1">Creative Development</h3>
+              <p className="text-gray-300 text-base">
+                Crafting modern, responsive, and interactive web applications that reflect my skills and creativity.
+              </p>
+            </div>
           </motion.div>
 
-        </div>
-      </div>
-    </section>
+          <motion.div
+            className="flex items-start space-x-4 p-4"
+            initial={{ opacity: 0, x: -20 }}
+            variants={{
+              hidden: { opacity: 0, x: -20 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+            }}
+          >
+            <motion.div
+              className="flex-shrink-0 p-3 rounded-xl bg-[#2f2550] text-white border border-[#57419e]"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Monitor className="w-6 h-6" />
+            </motion.div>
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-1">Continuous Learning</h3>
+              <p className="text-gray-300 text-base">
+                Exploring new technologies, frameworks, and best practices to constantly grow as a developer and deliver high-quality work.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.button
+          className="py-3 px-8 bg-[#2f2550] text-white border border-[#57419e] font-bold text-lg rounded-xl shadow-lg hover:bg-[#57419e] cursor-pointer transition duration-300 transform hover:scale-[1.03]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Explore My Work <CheckCircle className="inline w-5 h-5 ml-2" />
+        </motion.button>
+      </motion.div>
+
+      {/* RIGHT COLUMN */}
+      <motion.div
+        className="lg:col-span-5 mt-12 lg:mt-0 flex justify-center lg:justify-end px-4 sm:px-6 md:px-8"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <motion.div
+          className="relative w-full max-w-md lg:max-w-full"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.4 }}
+        >
+          <motion.img
+            src={images.dummyImg1}
+            alt="Coding & Creativity"
+            className="w-full h-auto object-cover rounded-2xl shadow-2xl transform transition duration-500"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          />
+          <div className="absolute inset-0 border-4 border-lime-400 rounded-2xl opacity-50"></div>
+
+          <motion.div
+            className="absolute top-0 right-0 w-32 sm:w-40 md:w-48 h-auto transform translate-x-8 -translate-y-8 shadow-2xl rounded-xl overflow-hidden"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 1 }}
+          >
+            <img src={images.dummyImg2} alt="Teamwork & Projects" className="w-full h-auto object-cover" />
+            <div className="absolute inset-0 border-2 border-[#09152C] rounded-xl"></div>
+          </motion.div>
+
+          <motion.div
+            className="absolute bottom-0 left-0 w-2/5 sm:w-1/3 md:w-2/5 transform -translate-x-8 translate-y-8 shadow-2xl rounded-xl overflow-hidden"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: 1.2 }}
+          >
+            <img src={images.dummyImg3} alt="Portfolio Highlights" className="w-full h-auto object-cover" />
+            <div className="absolute inset-0 border-2 border-[#09152C] rounded-xl"></div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
+
+
 
     {/* fourth section -> PROJECTS */}
 <section id="projects" className="bg-gray-900 text-white ">
@@ -592,8 +594,9 @@ const Homepage = () => {
         visible: { transition: { staggerChildren: 0.2 } },
       }}
     >
-      {projectsData.map((project, index) => (
-        <motion.div
+       {projectsData.map((project, index) => (
+       <Link to={project.link} target="_blank" key={index} >
+         <motion.div
           key={index}
           className="relative rounded-lg overflow-hidden shadow-lg bg-[#1E182D]/90 border transition-transform duration-300 hover:scale-[1.02]"
           initial={{ opacity: 0, y: 30 }}
@@ -647,6 +650,7 @@ const Homepage = () => {
             </motion.div>
           </div>
         </motion.div>
+       </Link>
       ))}
     </motion.div>
   </div>

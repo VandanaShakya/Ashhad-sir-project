@@ -1,14 +1,14 @@
 import heroImg from './home/herobackimg.jpeg';
-import dummyImg1 from './home/dummy1.webp'
-import dummyImg2 from './home/dummy2.webp'
-import dummyImg3 from './home/dummy3.webp'
+import dummyImg1 from './home/dummy1.png'
+import dummyImg2 from './home/dummy2.png'
+import dummyImg3 from './home/dummy3.png'
 
 // projects //
-import project1 from './home/project1.webp'
-import project2 from './home/project2.webp'
-import project3 from './home/project3.webp'
-import project4 from './home/project4.webp'
-import project5 from './home/project5.webp'
+import project1 from './home/project1.jpg'
+import project2 from './home/project2.jpg'
+import project3 from './home/project3.jpg'
+import project4 from './home/project4.jpg'
+import project5 from './home/project5.jpg'
 
 // footer //
 
