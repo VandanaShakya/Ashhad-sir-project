@@ -13,7 +13,6 @@ function Navbar() {
 
   // scroll if on home; otherwise navigate to home with state
   const goToSection = (sectionId) => {
-    // normalize: 'home' -> 'hero'
     const targetId = sectionId === "home" ? "hero" : sectionId;
 
     if (location.pathname === "/") {
@@ -21,7 +20,6 @@ function Navbar() {
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
-        // fallback to navigate with state
         navigate("/", { state: { scrollTo: sectionId } });
       }
     } else {
@@ -38,7 +36,7 @@ function Navbar() {
 
   return (
     <nav className="fixed w-full z-50 bg-[#121820] shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 ">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -51,24 +49,20 @@ function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block ">
+          <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <button onClick={() => goToSection("about")} className={`${navLinkClasses} ${'cursor-pointer'}`}>
+              <button onClick={() => goToSection("about")} className={`${navLinkClasses} cursor-pointer`}>
                 About
               </button>
-
-              <button onClick={() => goToSection("experience")} className={`${navLinkClasses} ${'cursor-pointer'}`}>
+              <button onClick={() => goToSection("experience")} className={`${navLinkClasses} cursor-pointer`}>
                 Experience
               </button>
-
-              <button onClick={() => goToSection("tech")} className={`${navLinkClasses} ${'cursor-pointer'}`}>
+              <button onClick={() => goToSection("tech")} className={`${navLinkClasses} cursor-pointer`}>
                 Tech
               </button>
-
-              <button onClick={() => goToSection("projects")} className={`${navLinkClasses} ${'cursor-pointer'}`}>
+              <button onClick={() => goToSection("projects")} className={`${navLinkClasses} cursor-pointer`}>
                 Projects
               </button>
-
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -96,27 +90,30 @@ function Navbar() {
       </div>
 
       {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-[#121820]" id="mobile-menu cursor-pointer">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <button onClick={() => goToSection("about")} className={mobileLinkClasses}>
-              About
-            </button>
-            <button onClick={() => goToSection("experience")} className={mobileLinkClasses}>
-              Experience
-            </button>
-            <button onClick={() => goToSection("tech")} className={mobileLinkClasses}>
-              Tech
-            </button>
-            <button onClick={() => goToSection("projects")} className={mobileLinkClasses}>
-              Projects
-            </button>
-            <button onClick={() => goToSection("contact")} className={mobileLinkClasses}>
-              Contact
-            </button>
-          </div>
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="md:hidden overflow-hidden fixed top-16 left-0 w-full bg-[#121820] z-40"
+      >
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <button onClick={() => goToSection("about")} className={mobileLinkClasses}>
+            About
+          </button>
+          <button onClick={() => goToSection("experience")} className={mobileLinkClasses}>
+            Experience
+          </button>
+          <button onClick={() => goToSection("tech")} className={mobileLinkClasses}>
+            Tech
+          </button>
+          <button onClick={() => goToSection("projects")} className={mobileLinkClasses}>
+            Projects
+          </button>
+          <button onClick={() => goToSection("contact")} className={mobileLinkClasses}>
+            Contact
+          </button>
         </div>
-      )}
+      </motion.div>
     </nav>
   );
 }
