@@ -81,7 +81,7 @@ function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden w-[30%]">
+          <div className="flex md:hidden">
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none"
